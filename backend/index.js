@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 // mainly installed for post
 const bodyParser = require('body-parser')
+const router = require('./routes/router')
 
 // set up server by calling express
 const app = express()
@@ -17,6 +18,7 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+app.use('/', router)
 
 // set up port to run server on
 const port = 4000
