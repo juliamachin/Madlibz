@@ -1,18 +1,12 @@
 import "./Home.css";
+import Form from "../Form/Form";
 
-const Home = (props) => {
-  <div>
-    <form>
-      <input
-        className="input"
-        type="text"
-        onChange={props.handleFormChange}
-        placeholder={props.blanks}
-        id={props.id}
-        required
-      />
-    </form>
-  </div>;
+const Home = () => {
+  return (
+    <div>
+      <Form />
+    </div>
+  );
 };
 
 export default Home;
