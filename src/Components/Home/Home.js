@@ -1,8 +1,17 @@
 import "./Home.css";
 
-const Home = () => {
+const Home = (props) => {
   <div>
-    <form></form>
+    <form>
+      <input
+        className="input"
+        type="text"
+        onChange={props.handleFormChange}
+        placeholder={props.blanks}
+        id={props.id}
+        required
+      />
+    </form>
   </div>;
 };
 

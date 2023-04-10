@@ -5,8 +5,8 @@ const router = express.Router();
 router.get("/stories", (req, res) => {
   const storyData = [
     {
-      title: "Learning About History",
-      blanks: [
+      "title": "Learning About History",
+      "blanks": [
         "adjective",
         "noun",
         "nouns",
@@ -22,7 +22,7 @@ router.get("/stories", (req, res) => {
         "adjective",
         "nouns",
       ],
-      value: [
+      "value": [
         "History is ",
         " because we learn about ",
         " and ",
@@ -41,7 +41,45 @@ router.get("/stories", (req, res) => {
         0,
       ],
     },
-  ]
+    {
+      "title": "The Perfect Meal",
+      "blanks": [
+        "adjective",
+        "noun",
+        "adjective",
+        "adjective",
+        "noun",
+        "noun",
+        "adjective",
+        "verb",
+        "adjective",
+        "verb",
+        "noun",
+        "adjective",
+        "noun",
+        "noun",
+      ],
+      "value": [
+        "For my perfect meal, I want something ",
+        " and ",
+        " that will make me feel ",
+        " and ",
+        ". First, I'll start with a bowl of ",
+        " and a side of ",
+        " to get my appetite going. Then, I'll move on to the main course - a ",
+        " ",
+        " ",
+        " ",
+        " with a ",
+        " ",
+        " sauce. For dessert, I'll have a slice of ",
+        " and a cup of ",
+        " to wash it down. That sounds like the perfect way to spend an ",
+        " afternoon!",
+        0,
+      ],
+    },
+  ];
 
   res.send(storyData);
 });
