@@ -21,14 +21,14 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
+      <Nav />
       <main>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/story" element={<Story />} />
         </Routes>
       </main>
-      <Nav />
     </div>
   );
 }
