@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Nav from "./Components/Nav/Nav";
-import Form from "./Components/Form/Form";
 import Story from "./Components/Story/Story";
-import Home from "./Components/Home/Home";
 
 function App() {
   const [formData, setFormData] = useState([]);
@@ -38,16 +36,22 @@ function App() {
   const blankForm = formData.map((blank, index) => {
     // console.log(blank);
     return (
-      <Form
-        handleFormChange={handleFormChange}
-        blanks={blank}
-        id={index}
-        userInput={userInput}
-      />
+      <form className="form-body">
+        <input
+          className="input"
+          type="text"
+          placeholder={blank}
+          id={index}
+          required
+        />
+      </form>
     );
   });
 
+  // console.log(blankForm)
+
   function handleFormChange(event) {
+    // prevents the browser from reloading the page upon submit
     event.preventDefault();
     const key = event.target.id;
     const value = event.target.value;
@@ -61,15 +65,10 @@ function App() {
       <Nav />
       <div>
         <form>{blankForm}</form>
-        <input
-          className="button"
-          type="submit"
-          value="Submit"
-        />
+        <input className="button" type="submit" value="Submit" />
       </div>
       <main>
         <Routes>
-          <Route exact path="/" element={<Home />} />
           <Route path="/story" element={<Story />} />
         </Routes>
       </main>
