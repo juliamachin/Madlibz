@@ -7,6 +7,11 @@ import Home from "./Components/Home/Home";
 import Story from "./Components/Story/Story";
 
 function App() {
+  const [formData, setFormData] = useState([]);
+  const [storyData, setStoryData] = useState([]);
+  const [userInput, setUserInput] = useState({});
+  const [title, setTitle] = useState("");
+  
   useEffect(() => {
     apiCall();
   }, []);

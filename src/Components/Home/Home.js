@@ -1,11 +1,9 @@
-import "./Home.css"
+import "./Home.css";
 
 const Home = () => {
-    <div>
-        <form>
+  <div>
+    <form></form>
+  </div>;
+};
 
-        </form>
-    </div>
-}
-
-export default Home
+export default Home;
