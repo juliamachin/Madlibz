@@ -75,7 +75,7 @@ function App() {
     <div className="App">
       <Nav />
       <div>
-        <form>{blankForm}</form>
+        <div>{blankForm}</div>
         <input
           className="button"
           type="submit"
@@ -85,7 +85,7 @@ function App() {
       </div>
       <main>
         <Routes>
-          <Route path='*' element={<App />} />
+          {/* <Route path='*' element={<Home />} /> */}
           <Route path="/story" element={<Story title={title} inputArr={newArray} story={storyData} />} />
         </Routes>
       </main>
