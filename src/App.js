@@ -10,6 +10,9 @@ function App() {
   const [storyData, setStoryData] = useState([]);
   const [userInput, setUserInput] = useState({});
   const [title, setTitle] = useState("");
+  const [newArray, setNewArray] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     apiCall();
@@ -33,7 +36,7 @@ function App() {
   // console.log(title);
 
   // `.map() function to return the items in the blanks array`
-  const blankForm = formData.map((blank, index) => {
+  const blankForm = formData.map((blank, id) => {
     // console.log(blank);
     return (
       <form className="form-body">
@@ -41,7 +44,7 @@ function App() {
           className="input"
           type="text"
           placeholder={blank}
-          id={index}
+          id={id}
           required
         />
       </form>
@@ -56,8 +59,16 @@ function App() {
     const key = event.target.id;
     const value = event.target.value;
     setUserInput({ ...userInput, [key]: value });
+  }
 
-    //  console.log(userInput);
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    let arr = [];
+    for (const key in userInput) {
+      arr.push(userInput[key]);
+    }
+    setNewArray(arr);
+    navigate("/story");
   }
 
   return (
@@ -65,11 +76,17 @@ function App() {
       <Nav />
       <div>
         <form>{blankForm}</form>
-        <input className="button" type="submit" value="Submit" />
+        <input
+          className="button"
+          type="submit"
+          value="Submit"
+          onClick={handleFormSubmit}
+        />
       </div>
       <main>
         <Routes>
-          <Route path="/story" element={<Story />} />
+          <Route path='*' element={<App />} />
+          <Route path="/story" element={<Story title={title} inputArr={newArray} story={storyData} />} />
         </Routes>
       </main>
     </div>
