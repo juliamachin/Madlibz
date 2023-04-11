@@ -77,7 +77,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <div>
+      <div className="container">
         <div>{blankForm}</div>
         <input
           className="button"
