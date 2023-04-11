@@ -36,7 +36,7 @@ function App() {
   // console.log(title);
 
   // `.map() function to return the items in the blanks array`
-  const blankForm = formData.map((blank, id) => {
+  const blankForm = formData.map((blank, index) => {
     // console.log(blank);
     return (
       <form className="form-body">
@@ -44,7 +44,10 @@ function App() {
           className="input"
           type="text"
           placeholder={blank}
-          id={id}
+          id={index}
+          onChange={handleFormChange}
+          blanks={blank}
+          userInput={userInput}
           required
         />
       </form>
@@ -85,8 +88,12 @@ function App() {
       </div>
       <main>
         <Routes>
-          {/* <Route path='*' element={<Home />} /> */}
-          <Route path="/story" element={<Story title={title} inputArr={newArray} story={storyData} />} />
+          <Route
+            path="/story"
+            element={
+              <Story title={title} inputArr={newArray} story={storyData} />
+            }
+          />
         </Routes>
       </main>
     </div>
